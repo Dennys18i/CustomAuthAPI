@@ -1,0 +1,6 @@
+@custom_auth_NET_HostAddress = http://localhost:5263
+
+GET {{custom_auth_NET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
