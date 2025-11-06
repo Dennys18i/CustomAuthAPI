@@ -1,4 +1,5 @@
 using custom_auth_NET.Data;
+using custom_auth_NET.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UserDatabase")));
+
+builder.Services.AddScoped<IAuthServices, AuthServices>();
 
 var app = builder.Build();
 
