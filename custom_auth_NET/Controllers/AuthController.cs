@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using custom_auth_NET.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace custom_auth_NET.Controllers
 {
@@ -38,7 +39,12 @@ namespace custom_auth_NET.Controllers
             return Ok(token);
 
         }
-
+        [Authorize]
+        [HttpGet]
+        public IActionResult AuthenticateOnlyEndpoint()
+        {
+            return Ok("You are authenticated");
+        }
        
     }
 }
