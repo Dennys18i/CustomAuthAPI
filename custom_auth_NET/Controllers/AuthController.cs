@@ -45,6 +45,13 @@ namespace custom_auth_NET.Controllers
         {
             return Ok("You are authenticated");
         }
-       
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin")]
+        public IActionResult AdminOnlyEndpoint()
+        {
+            return Ok("You are an admin");
+        }
+
     }
 }
